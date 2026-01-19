@@ -6,11 +6,9 @@ const SvgConverter = React.lazy(() => import('@/features/svg-converter/SvgConver
 const Optimizer = React.lazy(() => import('@/features/optimizer/Optimizer'));
 const Spritesheet = React.lazy(() => import('@/features/spritesheet/Spritesheet'));
 
-const LoadingFallback = () => (
-  <div className="flex items-center justify-center w-full h-[60vh] text-[var(--text-muted)]">
-    Loading...
-  </div>
-);
+import { Loader } from '@/routes/Loader';
+
+const LoadingFallback = () => <Loader />;
 
 export const AppRouter = () => {
   return (
