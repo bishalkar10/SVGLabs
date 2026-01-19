@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import eventBus from "@/utils/eventBus";
 import classes from "./ToastContainer.module.css";
 import type { ToastData, ToastPosition } from "@/utils/toast";
