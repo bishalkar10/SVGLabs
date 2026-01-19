@@ -34,12 +34,16 @@ export const SvgConverterLoader = () => {
             <div className={classes.bundleList}>
               {[1, 2, 3, 4].map((i) => (
                 <div key={i} className={classes.bundleItem}>
-                   <Skeleton width={40} height={20} />
-                   <Skeleton width={i * 16} height={i * 16} />
+                  <Skeleton width={40} height={20} />
+                  <Skeleton width={i * 16} height={i * 16} />
                 </div>
               ))}
             </div>
-             <Skeleton width="100%" height={40} className={classes.bundleFooter} />
+            <Skeleton
+              width="100%"
+              height={40}
+              className={classes.bundleFooter}
+            />
           </div>
         </div>
       </div>

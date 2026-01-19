@@ -1,5 +1,7 @@
 import React, { Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import RootLayout from "./RootLayout";
+import { SvgConverterLoader } from "@/routes/SvgConverterLoader";
 
 // Lazy load features for performance
 const SvgConverter = React.lazy(
@@ -10,22 +12,39 @@ const Spritesheet = React.lazy(
   () => import("@/features/spritesheet/Spritesheet"),
 );
 
-import { SvgConverterLoader } from "@/routes/SvgConverterLoader";
-
-export const AppRouter = () => {
-  return (
-    <Routes>
-      <Route
-        path="/"
-        element={
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        index: true,
+        element: (
           <Suspense fallback={<SvgConverterLoader />}>
             <SvgConverter />
           </Suspense>
-        }
-      />
-      <Route path="/optimizer" element={<Optimizer />} />
-      <Route path="/spritesheet" element={<Spritesheet />} />
-      <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes>
-  );
-};
+        ),
+      },
+      {
+        path: "optimizer",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Optimizer />
+          </Suspense>
+        ),
+      },
+      {
+        path: "spritesheet",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Spritesheet />
+          </Suspense>
+        ),
+      },
+      {
+        path: "*",
+        element: <Navigate to="/" replace />,
+      },
+    ],
+  },
+]);

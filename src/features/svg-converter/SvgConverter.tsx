@@ -1,9 +1,25 @@
-import React, { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback } from "react";
 import CodeEditor from "@/components/editor/CodeEditor";
 import { svgToIco } from "@/utils/ico-converter";
 import { formatSvg } from "@/utils/svg-formatter";
 import classes from "@/features/svg-converter/SvgConverter.module.css";
 import { toast } from "@/utils/toast";
+
+export function meta() {
+  return [
+    { title: "SVG to ICO Converter | SVG Labs" },
+    {
+      name: "description",
+      content:
+        "Convert SVG files to ICO, PNG, and create icon bundles instantly. Free online tool for developers and designers to optimize and convert vector graphics.",
+    },
+    {
+      name: "keywords",
+      content:
+        "svg to ico, svg converter, icon generator, favicon creator, tech labs, svg tools",
+    },
+  ];
+}
 
 const SvgConverter = () => {
   const [code, setCode] = useState(
@@ -177,7 +193,7 @@ const SvgConverter = () => {
 
         {/* Preview Pane (Right) */}
         <div className={classes.previewPane}>
-          <div className={classes.paneHeader}>Live Preview</div>
+          <h2 className={classes.paneHeader}>Live Preview</h2>
           <div className={classes.canvasArea}>
             {/* White card for previewing transparency */}
             <div className={classes.previewCard}>
@@ -189,12 +205,12 @@ const SvgConverter = () => {
           </div>
 
           <div className={classes.bundleArea}>
-            <div
+            <h2
               className={classes.paneHeader}
               style={{ paddingLeft: 0, paddingRight: 0, border: "none" }}
             >
               Icon Bundle
-            </div>
+            </h2>
             <div className={classes.bundleList}>
               {[16, 32, 48, 64].map((size) => (
                 <div key={size} className={classes.bundleItem}>
