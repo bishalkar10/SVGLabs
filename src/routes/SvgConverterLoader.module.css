@@ -53,3 +53,24 @@
   gap: var(--spacing-md);
   margin-top: auto;
 }
+
+.editorLine {
+  opacity: 0.3;
+}
+
+.bundleList {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bundleItem {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.bundleFooter {
+  margin-top: 16px;
+}

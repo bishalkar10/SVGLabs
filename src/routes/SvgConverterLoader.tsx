@@ -1,7 +1,7 @@
 import { Skeleton } from "@/components/ui/Skeleton";
-import classes from "./Loader.module.css";
+import classes from "./SvgConverterLoader.module.css";
 
-export const Loader = () => {
+export const SvgConverterLoader = () => {
   return (
     <div className={classes.container}>
       {/* Header Skeleton */}
@@ -18,7 +18,7 @@ export const Loader = () => {
               key={i}
               height={20}
               width={`${Math.random() * 40 + 30}%`}
-              style={{ opacity: 0.3 }}
+              className={classes.editorLine}
             />
           ))}
         </div>
@@ -31,15 +31,15 @@ export const Loader = () => {
 
           <div className={classes.bundleArea}>
             <Skeleton width={100} height={20} />
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-              {[1, 2, 3].map((i) => (
-                <div key={i} style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+            <div className={classes.bundleList}>
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className={classes.bundleItem}>
                    <Skeleton width={40} height={20} />
-                   <Skeleton width={48} height={48} />
+                   <Skeleton width={i * 16} height={i * 16} />
                 </div>
               ))}
             </div>
-             <Skeleton width="100%" height={40} style={{ marginTop: "16px" }} />
+             <Skeleton width="100%" height={40} className={classes.bundleFooter} />
           </div>
         </div>
       </div>
