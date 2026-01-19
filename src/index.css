@@ -1,0 +1,153 @@
+:root {
+  /* Metrics */
+  --radius: 0px; /* User requirement: 0px default */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --header-height: 50px;
+  --sidebar-width: 260px;
+  --toast-offset: 20px;
+
+  /* Colors - Visily/Linear Dark Theme */
+  /* Backgrounds */
+  --bg-app: #121212; /* Main background */
+  --bg-sidebar: #18181b; /* Sidebar background */
+  --bg-panel: #1e1e24; /* Panels / Cards */
+  --bg-hover: #27272a;
+  --bg-active: #3f3f46;
+
+  /* Text */
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+
+  /* Borders */
+  --border-color: #27272a;
+
+  /* Accents */
+  --primary: #f97316;       /* Project Orange */
+  --primary-hover: #ea580c;
+  
+  --accent-secondary: #6366f1; /* Secondary (Indigo) - kept for utility if needed, but primary is Orange */
+  --accent-success: #22c55e;
+  
+  /* Component Specific */
+  --bg-segment-active: #3f3f46; /* Neutral Dark for segments */
+  --text-segment-active: #f4f4f5;
+
+  /* Fonts */
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* App-like feel */
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  display: flex; /* Global Flex for Sidebar + Main */
+}
+
+/* Base Layout Classes (Semantic) */
+.app-layout {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-app);
+  overflow: hidden;
+}
+
+/* Components */
+.btn {
+  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: var(--bg-panel);
+  color: var(--text-primary);
+  border-radius: var(--radius);
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
+}
+
+.btn:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--border-color);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* Utilities */
+.hidden {
+  display: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-active);
+  border-radius: 5px;
+  border: 2px solid var(--bg-app); /* Creates padding effect */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

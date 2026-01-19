@@ -1,0 +1,54 @@
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #e2e8f0;
+  text-shadow: none;
+  font-family: "Fira Code", "Fira Mono", monospace;
+  font-size: 14px;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  tab-size: 2;
+  hyphens: none;
+}
+
+.token.tag,
+.token.tag .token.punctuation {
+  color: #ff79c6;
+}
+
+.token.attr-name {
+  color: #a6e22e; 
+  font-style: normal;
+}
+
+.token.attr-value,
+.token.string {
+  color: #f1fa8c;
+}
+
+.token.attr-value .token.punctuation {
+  color: #f1fa8c;
+}
+
+/* Punctuation */
+.token.punctuation {
+  color: #f8f8f2;
+}
+
+/* Comments */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6272a4;
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+  color: #f8f8f2;
+}

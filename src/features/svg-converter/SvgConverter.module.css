@@ -1,0 +1,279 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  height: var(--header-height);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 var(--spacing-md);
+  background: var(--bg-app);
+}
+
+.segmentedControl {
+  display: flex;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 2px;
+  gap: 2px;
+}
+
+.segmentBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: calc(var(--radius) - 2px);
+  transition: all 0.2s;
+}
+
+.segmentBtn:hover {
+  color: var(--text-primary);
+}
+
+.segmentBtn.active {
+  background: var(--bg-segment-active);
+  color: var(--text-segment-active);
+}
+
+
+.segmentIcon {
+  font-size: 14px;
+}
+
+.workspace {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.editorPane {
+  flex: 2;
+  min-width: 0;
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-app);
+}
+
+.editorToolbar {
+  padding: var(--spacing-sm) var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-app);
+}
+
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-secondary);
+  user-select: none;
+}
+
+.toggleInput {
+  display: none;
+}
+
+.toggleSwitch {
+  width: 36px;
+  height: 20px;
+  background-color: var(--bg-active);
+  border-radius: 999px;
+  position: relative;
+  transition: background-color 0.2s;
+}
+
+.toggleInput:checked + .toggleSwitch {
+  background-color: var(--text-secondary); /* Greyish active state from screenshot 0 */
+}
+
+.toggleSlider {
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.2s;
+}
+
+.toggleInput:checked + .toggleSwitch .toggleSlider {
+  transform: translateX(16px);
+}
+
+
+.previewPane {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-panel);
+}
+
+.paneHeader {
+  padding: var(--spacing-md);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.canvasArea {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+  padding: var(--spacing-lg);
+}
+
+.previewCard {
+  background: white;
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  aspect-ratio: 16/9; /* Keep aspect ratio but ensure content fits */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Prevent massive SVGs from overflowing */
+}
+
+.previewCard > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewCard svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.bundleArea {
+  padding: var(--spacing-md);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.bundleList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.bundleItem {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  gap: 1rem;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.iconPreview {
+  /* Dimensions set via inline style in JS */
+  background: var(--bg-active);
+  border-radius: var(--radius);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.iconPreview svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+.downloadBtn {
+  background-color: var(--primary);
+  color: white;
+  width: 100%;
+  margin-top: 16px;
+  border: none;
+  font-weight: 600;
+}
+
+.downloadBtn:hover {
+  background-color: var(--primary-hover);
+}
+
+.downloadBtn:disabled {
+  background-color: var(--bg-active);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.editorWrapper {
+  flex: 1;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+}
+
+.uploadArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: var(--bg-app);
+}
+
+.uploadArea:hover {
+  background-color: var(--bg-panel);
+}
+
+.uploadContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.uploadContent svg {
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+.uploadTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.uploadSubtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+}

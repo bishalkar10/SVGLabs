@@ -1,0 +1,69 @@
+.toastContainer {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+  max-width: 400px;
+  width: 100%;
+  pointer-events: none;
+}
+
+.topRight { top: var(--toast-offset); right: var(--toast-offset); align-items: flex-end; }
+.topLeft { top: var(--toast-offset); left: var(--toast-offset); align-items: flex-start; }
+.topCenter { top: var(--toast-offset); left: 50%; transform: translateX(-50%); align-items: center; }
+.bottomRight { bottom: var(--toast-offset); right: var(--toast-offset); flex-direction: column-reverse; align-items: flex-end; }
+.bottomLeft { bottom: var(--toast-offset); left: var(--toast-offset); flex-direction: column-reverse; align-items: flex-start; }
+.bottomCenter { bottom: var(--toast-offset); left: 50%; transform: translateX(-50%); flex-direction: column-reverse; align-items: center; }
+
+.toast {
+  pointer-events: auto;
+  padding: 12px 24px;
+  background: var(--bg-panel);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 300px;
+  transition: all 0.2s ease;
+}
+
+.success { border-left: 4px solid var(--primary); color: var(--text-primary); }
+.error { border-left: 4px solid #ef4444; color: var(--text-primary); }
+.info { border-left: 4px solid #3b82f6; color: var(--text-primary); }
+.warning { border-left: 4px solid #f59e0b; color: var(--text-primary); }
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInTop {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes slideInBottom {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.topRight > .toast, .bottomRight > .toast { 
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+}
+.topLeft > .toast, .bottomLeft > .toast { 
+  animation: slideInLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+}
+.topCenter > .toast { 
+  animation: slideInTop 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+}
+.bottomCenter > .toast { 
+  animation: slideInBottom 0.3s cubic-bezier(0.16, 1, 0.3, 1); 
+}
